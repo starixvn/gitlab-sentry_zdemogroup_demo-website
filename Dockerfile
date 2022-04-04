@@ -16,7 +16,9 @@ RUN dotnet publish -c release -o /app -r linux-musl-x64 --self-contained false -
 FROM registry.nexdev.net:5050/docker/dotnet/core/aspnet:6.0-alpine-amd64
 WORKDIR /app
 COPY --from=build /app ./
-
+RUN apk add --update curl && \
+    rm -rf /var/cache/apk/*
+RUN curl --version
 # See: https://github.com/dotnet/announcements/issues/20
 # Uncomment to enable globalization APIs (or delete)
 # ENV \
