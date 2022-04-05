@@ -4,5 +4,5 @@ include:
     #  file: "gitlab-ci.yml"
 
     - project: "ci/repos-ci/nexops_sample_aspnet6"
-      ref: trivy
+      ref: master
       file: "gitlab-ci.yml"
