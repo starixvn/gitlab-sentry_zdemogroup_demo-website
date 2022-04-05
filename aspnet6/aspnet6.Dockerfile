@@ -15,7 +15,8 @@ RUN dotnet publish -r linux-x64 --self-contained false -o /app
 #RUN dotnet publish -c release -o /app -r linux-musl-x64 --self-contained false --no-restore
 
 # final stage/image
-FROM registry.nexdev.net:5050/docker/dotnet/core/aspnet:6.0-alpine-amd64 AS base
+#FROM registry.nexdev.net:5050/docker/dotnet/core/aspnet:6.0-alpine-amd64 AS base
+FROM registry.nexdev.net:5050/docker/dotnet/core/aspnet:6.0
 RUN apt-get update
 RUN apt-get install curl -y
 WORKDIR /app
