@@ -23,5 +23,5 @@ RUN apk add --update curl && \
 #RUN apt-get install curl -y
 WORKDIR /app
 COPY --from=build /app ./
-#ENTRYPOINT ["dotnet", "aspnetapp.dll"]
-ENTRYPOINT ["./aspnetapp"]
+ENTRYPOINT ["dotnet", "aspnetapp.dll"]
+#ENTRYPOINT ["./aspnetapp"]
