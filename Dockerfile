@@ -29,5 +29,5 @@ RUN curl --version
 #     LANG=en_US.UTF-8
 # RUN apk add --no-cache icu-libs
 ENV TZ="America/La_Paz"
-ENTRYPOINT ["dotnet", "WebSite2.dll"]
+ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 #ENTRYPOINT ["./aspnetapp"]
