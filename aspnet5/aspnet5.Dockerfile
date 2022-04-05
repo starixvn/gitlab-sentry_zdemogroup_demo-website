@@ -1,9 +1,8 @@
 # https://hub.docker.com/_/microsoft-dotnet
 FROM registry.nexdev.net:5050/docker/dotnet/core/sdk:5.0.102-ca-patch-buster-slim AS builder
 WORKDIR /source
-RUN ls -l
 # copy csproj and restore as distinct layers
-COPY *.sln .
+COPY *.sln ./
 COPY aspnetapp/*.csproj ./aspnetapp/
 RUN dotnet restore -v n
 #RUN dotnet restore -r linux-musl-x64
