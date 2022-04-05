@@ -26,7 +26,7 @@
     "publicdev": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://+:80",
+      "applicationUrl": "http://+:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
