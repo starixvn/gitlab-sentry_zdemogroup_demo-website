@@ -3,7 +3,7 @@ FROM registry.nexdev.net:5050/docker/dotnet/core/sdk:6.0-alpine AS build
 WORKDIR /source
 
 # copy csproj and restore as distinct layers
-COPY *.sln .
+#COPY *.sln .
 COPY aspnet6/*.csproj ./aspnet6/
 RUN dotnet restore -v n
 #RUN dotnet restore -r linux-musl-x64
