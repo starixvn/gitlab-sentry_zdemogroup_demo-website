@@ -12,7 +12,7 @@ RUN dotnet restore -v n
 COPY aspnetapp/. ./aspnetapp/
 WORKDIR /source/aspnetapp
 #RUN dotnet publish -c release -o /app -r linux-musl-x64 --self-contained false --no-restore
-RUN dotnet publish -r linux-x64 --self-contained false -o /app
+RUN dotnet publish -r linux-musl-x64 --self-contained false -o /app
 
 # final stage/image
 FROM registry.nexdev.net:5050/docker/dotnet/core/aspnet:6.0-alpine-amd64 AS base
@@ -28,5 +28,6 @@ RUN curl --version
 #     LC_ALL=en_US.UTF-8 \
 #     LANG=en_US.UTF-8
 # RUN apk add --no-cache icu-libs
-
-ENTRYPOINT ["./aspnetapp"]
+ENV TZ="America/La_Paz"
+ENTRYPOINT ["dotnet", "WebSite2.dll"]
+#ENTRYPOINT ["./aspnetapp"]
