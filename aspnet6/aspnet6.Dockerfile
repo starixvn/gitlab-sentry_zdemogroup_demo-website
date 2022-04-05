@@ -18,6 +18,7 @@ RUN dotnet publish -r linux-x64 --self-contained false -o /app
 FROM registry.nexdev.net:5050/docker/dotnet/core/aspnet:6.0-alpine-amd64
 WORKDIR /app
 COPY --from=build /app ./
-
+RUN apt-get update
+RUN apt-get install curl -y
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 #ENTRYPOINT ["./aspnetapp"]
