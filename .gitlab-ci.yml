@@ -5,4 +5,4 @@ include:
 
     - project: "ci/repos-ci/nexops_sample_aspnet6"
       ref: master
-      file: "gitlab-ci.yml"
+      file: "gitlab-ci-mixing.yml"
