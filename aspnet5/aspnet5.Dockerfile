@@ -24,6 +24,6 @@ COPY --from=build /app ./
 #ENV LC_ALL en_US.UTF-8
 #ENV LANG en_US.UTF-8
 
-ENTRYPOINT ["./aspnetapp"]
+###ENTRYPOINT ["./aspnetapp"]
 
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
