@@ -4,12 +4,12 @@ WORKDIR /source
 
 # copy csproj and restore as distinct layers
 #COPY *.sln .
-COPY aspnet6/*.csproj ./aspnet6/
+COPY *.csproj ./aspnet6/
 RUN dotnet restore -v n
 #RUN dotnet restore -r linux-musl-x64
 
 # copy everything else and build app
-COPY aspnet6/. ./aspnet6/
+COPY . ./aspnet6/
 WORKDIR /source/aspnet6
 #RUN dotnet publish -c release -o /app -r linux-musl-x64 --self-contained false --no-restore
 RUN dotnet publish -r linux-musl-x64 --self-contained false -o /app
