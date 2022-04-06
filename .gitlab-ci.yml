@@ -1,4 +1,4 @@
-#include:
+include:
 #    - project: "ci/repos-ci/nexops_sample_aspnet5"
 #      ref: master
 #      file: "gitlab-ci-mixing.yml"
