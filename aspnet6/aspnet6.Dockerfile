@@ -19,8 +19,6 @@ RUN dotnet publish -r linux-x64 --self-contained false -o /app
 #RUN apk add --update curl && \
 #    rm -rf /var/cache/apk/*
 FROM registry.nexdev.net:5050/docker/dotnet/core/aspnet:6.0
-RUN apt-get update
-RUN apt-get install curl -y
 WORKDIR /app
 COPY --from=build /app ./
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
