@@ -21,10 +21,12 @@ RUN apk add --update curl && \
 WORKDIR /app
 COPY --from=build /app ./
 ###
-RUN groupadd -r devsecops && useradd --no-log-init -r -g devsecops devsecops
-RUN mkdir /home/devsecops
-RUN chown -R devsecops /app
-RUN chown -R devsecops /home/devsecops
-USER devsecops
+RUN addgroup --group friendlygroupname --gid 2000 \
+&& adduser \    
+    --uid 1000 \
+    --gid 2000 \
+    "friendlyusername" 
+RUN chown friendlyusername:friendlygroupname  /app
+USER friendlyusername:friendlygroupname
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 #ENTRYPOINT ["./aspnetapp"]
