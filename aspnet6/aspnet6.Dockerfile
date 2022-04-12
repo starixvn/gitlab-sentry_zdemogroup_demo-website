@@ -20,13 +20,5 @@ RUN apk add --update curl && \
 #FROM registry.nexdev.net:5050/docker/dotnet/core/aspnet:6.0 AS base
 WORKDIR /app
 COPY --from=build /app ./
-###
-RUN addgroup --group friendlygroupname --gid 2000 \
-&& adduser \    
-    --uid 1000 \
-    --gid 2000 \
-    "friendlyusername" 
-RUN chown friendlyusername:friendlygroupname  /app
-USER friendlyusername:friendlygroupname
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 #ENTRYPOINT ["./aspnetapp"]
